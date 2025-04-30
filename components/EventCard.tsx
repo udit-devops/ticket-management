@@ -1,6 +1,7 @@
 'use Client'
 import { api } from '@/convex/_generated/api';
 import { Id } from '@/convex/_generated/dataModel'
+import { useStorageUrl } from '@/lib/utils';
 import { useUser } from '@clerk/nextjs'
 import { Client } from '@clerk/nextjs/server'
 import { useQuery } from 'convex/react';
@@ -21,7 +22,14 @@ function EventCard ({eventId}:{eventId : Id<"events">})  {
   userId: user?.id??"",
 
  });
+const imageUrl = useStorageUrl(event?.imageStorageId);
 
+if (!event || availability){
+  return null
+}
+
+const isPastEvent= event.eventDate<Date.now();
+const isEventOwner = user?.id == event?.userId;
   return (
     <div>EventCard</div>
   )
