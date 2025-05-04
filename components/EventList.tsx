@@ -3,7 +3,8 @@
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import Spinner from "./Spinner";
-import { CalendarDays, Divide } from "lucide-react";
+import { CalendarDays, Divide, Ticket } from "lucide-react";
+import EventCard from "./EventCard";
 
 function EventList ()  {
 
@@ -62,7 +63,6 @@ function EventList ()  {
             </div>
          )}  
    
-
    {upcomingEvents.length > 0 &&  (
            <>
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-11">
@@ -73,6 +73,18 @@ function EventList ()  {
             </>
             ) 
          }
+
+      {postEvents.length > 0 && (
+         <>
+           <h2 className="text-gray-800 font-bold text-2xl mb-5">Past Events</h2>
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+             {postEvents.map((event) => (
+               <EventCard key={event._id} eventId={event._id} />
+             ))}
+           </div>
+         </>
+       )}
+      
       </div>
    )
   
