@@ -5,7 +5,7 @@ import { useStorageUrl } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
 import { Client } from "@clerk/nextjs/server";
 import { useQuery } from "convex/react";
-import { StarIcon } from "lucide-react";
+import { CalendarDays, MapIcon, StarIcon, Ticket } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 function EventCard({ eventId }: { eventId: Id<"events"> }) {
@@ -64,11 +64,64 @@ function EventCard({ eventId }: { eventId: Id<"events"> }) {
               </h2>
             </div>
             {isPastEvent && (
-              <span className="inline-flex items-center px-2.5 py-0.5 text-xs font-medium bg-gray-200 text-gray-400 mt-1">
+              <span className="inline-flex items-center px-2.5 py-0.5 text-xs font-medium bg-gray-200 text-gray-400 mt-3">
                 Past Event
               </span>
             )}
           </div>
+        </div>
+
+        {/* Price tag */}
+        <div className="flex flex-col items-end gap-2 ml-3">
+          <span
+            className={`px-4 py-1.5 font-semibold rounded-full ${
+              isPastEvent
+                ? "bg-gray-50 text-gray-600"
+                : "bg-green-50 text-green-600"
+            }`}
+          >
+          $ {event.price.toFixed(2)}
+          </span>
+          
+         {availability.purchasedCount >= availability.totalTickets && (
+          <span className="px-4 py-1.5 bg-red-50 text-red-500 font-semibold rounded-full text-sm">
+            Sold Out
+         </span>
+         )}
+          
+        </div>
+        <div className="mt-4 space-y-3">
+           <div className="flex items-center text-gray-600">
+                <MapIcon className="w-4 h-4 mr-2"/>
+                <span>{event.location}</span>
+           </div>
+           <div className="flex items-center bg-gray-600">
+             <CalendarDays className="w-4 h-4 mr-2"/>
+             <span>
+              {new Date(event.eventDate).toLocaleDateString()}{""}
+              {isPastEvent && "(Ended)"}
+             </span>
+           </div>
+           <div className="flex items-center text-gray-600">
+            <Ticket className="w-4 h-4 mr-2"/>
+            <span>
+              {availability.totalTickets - availability.purchasedCount}/ {""}
+              {availability.totalTickets} available
+              {!isPastEvent && availability.activeOffers >0 && (
+                <span>
+                  ({availability.activeOffers}{""}
+                  {availability.activeOffers === 1 ? "person" : "people"} trying to buy )
+                 
+                </span>
+              )}
+            </span>
+           </div>
+        </div>
+        <p className="mt-4 text-gray-600 text-sm line-clamp-2">
+          {event.description}
+        </p>
+        <div onClick={(e)=> e.stopPropagation()}>
+          {!isPastEvent && renderTicketStatus}
         </div>
       </div>
     </div>
