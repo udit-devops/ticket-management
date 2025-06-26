@@ -63,7 +63,7 @@ function EventList ()  {
             </div>
          )}  
    
-   {upcomingEvents.length > 0 &&  (
+   {/* {upcomingEvents.length > 0 &&  (
            <>
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-11">
                 {upcomingEvents.map((event)=>(
@@ -72,7 +72,7 @@ function EventList ()  {
             </div>
             </>
             ) 
-         }
+         } */}
 
       {postEvents.length > 0 && (
          <>
