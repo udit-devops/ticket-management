@@ -23,7 +23,7 @@ function Header() {
             <SignedIn>
               <UserButton />
             </SignedIn>
-            <SignedOut>
+            <SignedOut>Ṇ
               <SignInButton mode="modal">
                 <button className="bg-gray-100 text-gray-700 px-3 py-1.5 text-sm rounded-lg hover:bg-gray-200 border-gray-300 transition border">
                   Sign In

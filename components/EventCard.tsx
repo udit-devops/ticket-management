@@ -90,11 +90,10 @@ const renderQueuePosition=()=>{
           router.push(`/seller/events/${eventId}/edit`);
         }}
         className="w-full bg-gray-100 text-gray-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transtion-colors duration-200 shadow-sm flex items-center justify-center gap-2"
-        >
+        > 
           <PencilIcon className='w-4 h-4'/>
           Edit Event
-
-        </button>
+         </button>
 
       </div>
       );
