@@ -10,6 +10,7 @@ import Spinner from "@/components/Spinner";
 import Image from "next/image";
 import { CalendarDays, MapPin, Ticket, User } from "lucide-react";
 import EventCard from "@/components/EventCard";
+import JoinQueue from "@/components/JoinQueue";
 
 function Eventpage() {
   const { user } = useUser();
