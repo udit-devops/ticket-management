@@ -177,7 +177,7 @@ const renderQueuePosition=()=>{
               </span>
             )}
           </div>
-        </div>
+        
 
         {/* Price tag */}
         <div className="flex flex-col items-end gap-2 ml-3">
@@ -196,7 +196,7 @@ const renderQueuePosition=()=>{
             Sold Out
          </span>
          )}
-          
+          </div>
         </div>
         <div className="mt-4 space-y-3">
            <div className="flex items-center text-gray-600">
