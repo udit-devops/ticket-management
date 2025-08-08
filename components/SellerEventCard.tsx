@@ -7,8 +7,8 @@ import { useStorageUrl } from "@/lib/utils";
 import {
   Ban,
   Banknote,
-  Calendar,
-  CalendarDays,
+  
+  CalendarDaysIcon,
   Edit,
   
   InfoIcon,
@@ -118,7 +118,7 @@ function SellerEventCard({
               </div>
               <div className="bg-gray-50 p-3 rounded-lg">
                 <div className="flex items-center gap-2 text-gray-600 mb-1">
-                  <CalendarDays className="w-4 h-4" />
+                  <CalendarDaysIcon className="w-4 h-4" />
                   <span className="text-sm font-medium ">Date</span>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
