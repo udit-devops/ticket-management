@@ -21,4 +21,5 @@ export const TICKET_STATUS : Record<string,Doc<"tickets">["status"]>=
     REFUNDED:"refunded",
     USED:"used",
     CANCELLED:"cancelled",
+    
 }as const;

@@ -25,6 +25,7 @@ export default defineSchema({
          v.literal("cancelled"),
          v.literal("refunded"),
          v.literal("valid"),
+        
       ),
       paymentIntentId:v.optional(v.string()),
       amount:v.optional(v.number()),
@@ -34,18 +35,33 @@ export default defineSchema({
     .index("by_user_event",["userId" ,"eventId"])
     .index("by_payment_intent",["paymentIntentId"]),
 
-    waitingList :defineTable({
-      eventId:v.id("events"),
-      userId:v.string(),
-      status:v.union(
-         v.literal("offered"),
-         v.literal("waiting"),
-         v.literal("purchased"),
-         v.literal("expired"),
-      ),
+    // waitingList :defineTable({
+    //   eventId:v.id("events"),
+    //   userId:v.string(),
+    //   status:v.union(
+    //      v.literal("offered"),
+    //      v.literal("waiting"),
+    //      v.literal("purchased"),
+    //      v.literal("expired"),
+    //      v.literal("valid"),
+    //   ),
       
-      offerExpiersAt:v.optional(v.number()),
-    })
+    //   offerExpiersAt:v.optional(v.number()),
+    // })
+    waitingList :defineTable({
+  eventId: v.id("events"),
+  userId: v.string(),
+  status: v.optional(
+    v.union(
+      v.literal("offered"),
+      v.literal("waiting"),
+      v.literal("purchased"),
+      v.literal("expired"),
+      v.literal("valid"),
+    )
+  ),
+  offerExpiersAt: v.optional(v.number()),
+})
     .index("by_event_status",["eventId","status"])
     .index("by_user",["userId"])
     .index("by_user_event",["userId" ,"eventId"]),

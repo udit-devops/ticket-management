@@ -26,6 +26,7 @@ function ReleaseTicket({
   await releaseTicket({
     eventId,
     waitingListId,
+    
   })
  } catch (error) {
   console.log("error release ticket",error);

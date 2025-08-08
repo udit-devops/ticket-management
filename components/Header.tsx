@@ -45,9 +45,9 @@ function Header() {
                 Sell Tickets
               </button>
             </Link>
-            <Link href="/buyer">
+            <Link href="/tickets">
               <button className="bg-blue-200 text-gray-800 px-3 py-1.5 text-sm rounded-lg hover:bg-gray-400 transition border">
-                Buy Tickets
+                My Tickets
               </button>
             </Link>
             {/* Show Profile Pic on Large Screen */}
@@ -69,9 +69,9 @@ function Header() {
                 Sell Tickets
               </button>
             </Link>
-            <Link href="/buyer">
+            <Link href="/tickets">
               <button className="bg-blue-200 text-gray-800 px-3 py-1.5 text-sm rounded-lg hover:bg-gray-400 transition border">
-                Buy Tickets
+                My Tickets
               </button>
             </Link>
           </SignedIn>
