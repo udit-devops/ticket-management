@@ -5,7 +5,7 @@ import { useMutation } from 'convex/react'
 import { useState} from 'react'
 import { XCircle } from 'lucide-react'
 import { Id } from '@/convex/_generated/dataModel'
-import { releaseTicket } from '@/convex/waitingList'
+// import { releaseTicket } from '@/convex/waitingList'
 function ReleaseTicket({
   eventId,
   waitingListId,

@@ -28,11 +28,25 @@ function SellerDashboard () {
     userId: user?.id || "",
   });
 
-   useEffect(() => {
+  //  useEffect(() => {
+  //   if (stripeConnectId) {
+  //     fetchAccountStatus();
+  //   }
+  // }, [stripeConnectId]);
+useEffect(() => {
+  const fetchStatus = async () => {
     if (stripeConnectId) {
-      fetchAccountStatus();
+      try {
+        const status = await getStripeConnectAccountStatus(stripeConnectId);
+        setAccountStatus(status);
+      } catch (error) {
+        console.error("Error fetching account status:", error);
+      }
     }
-  }, [stripeConnectId]);
+  };
+
+  fetchStatus();
+}, [stripeConnectId]);
 
 if (stripeConnectId === undefined) {
     return <Spinner />;

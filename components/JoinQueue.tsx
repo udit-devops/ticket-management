@@ -3,7 +3,7 @@ import { api } from '@/convex/_generated/api';
 import { Id } from '@/convex/_generated/dataModel'
 import { useToast } from '@/hooks/use-toast';
 import { useMutation, useQuery } from 'convex/react';
-import { ConvexError, convexToJson } from 'convex/values';
+import { ConvexError,  } from 'convex/values';
 import React from 'react'
 import Spinner from './Spinner';
 import { WAITING_LIST_STATUS } from '@/convex/constants';
