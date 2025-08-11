@@ -60,7 +60,7 @@ function Header() {
               </button>
             </SignInButton>
           </SignedOut>
-        </div>
+        </div> 
 
         <div className="lg:hidden w-auto flex justify-center gap-3">
           <SignedIn>

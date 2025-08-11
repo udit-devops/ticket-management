@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
 
 
  },
+ {
+ hostname: "neighborly-fly-4.convex.cloud",
+  protocol:"https",
+ },
  ],
   }
 };
